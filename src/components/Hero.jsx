@@ -373,8 +373,8 @@ export default function Hero() {
           </div>
 
           {/* Hero Image */}
-          <div className="order-1 lg:order-2 flex justify-center animate-fade-in">
-            <div className="relative">
+          <div className="order-1 lg:order-2 flex justify-center animate-fade-in" style={{ isolation: 'auto', mixBlendMode: 'normal' }}>
+            <div className="relative" style={{ isolation: 'auto' }}>
               {/* Outer sacred geometry mandala */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] sm:w-[550px] sm:h-[550px] lg:w-[600px] lg:h-[600px] opacity-20">
                 <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow" style={{ animationDuration: '40s' }}>
@@ -411,21 +411,30 @@ export default function Hero() {
               <div className="absolute inset-0 -m-10 border border-dashed border-gold-500/15 rounded-full animate-spin-slow" style={{ animationDuration: '25s' }} />
               <div className="absolute inset-0 -m-16 border border-dotted border-saffron-500/10 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '35s' }} />
               
-              {/* Image container with double border */}
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden">
-                {/* Gradient border */}
-                <div className="absolute inset-0 rounded-full p-1" style={{ background: 'conic-gradient(from 45deg, #FFC526, #FF9800, #FFC526, #E6AA00, #FFC526)' }}>
-                  <div className="w-full h-full rounded-full overflow-hidden border-2 border-spiritual-dark">
-                    <img
-                      src="/images/venkateswarlu-spiritual.jpg"
-                      alt="Astrologer Venkateswarlu"
-                      className="w-full h-full object-cover object-top"
-                    />
-                    {/* Subtle vignette */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-spiritual-dark/30 via-transparent to-transparent" />
-                    <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 60px rgba(10,10,26,0.3)' }} />
-                  </div>
-                </div>
+              {/* Layered zodiac wheel: outer ring rotates, symbols and center stay static */}
+              <div
+                className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[520px] lg:h-[520px]"
+                role="img"
+                aria-label="Astrologer Venkateswarlu zodiac wheel"
+              >
+                <img
+                  src="/images/zodiac-wheel/outer-ring.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="zodiac-wheel-layer zodiac-wheel-layer-outer"
+                />
+                <img
+                  src="/images/zodiac-wheel/center-image.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="zodiac-wheel-layer zodiac-wheel-layer-center"
+                />
+                <img
+                  src="/images/zodiac-wheel/symbols-ring.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="zodiac-wheel-layer zodiac-wheel-layer-symbols"
+                />
               </div>
 
               {/* Corner accent glows */}

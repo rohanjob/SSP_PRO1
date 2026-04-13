@@ -159,6 +159,40 @@
     color: rgba(var(--theme-primary-rgb), 0.4);
   }
 
+  .zodiac-wheel-layer {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .zodiac-wheel-layer-outer {
+    z-index: 1;
+    transform-origin: 50% 50%;
+    animation: zodiacCounterRotate 28s linear infinite;
+    filter: drop-shadow(0 0 60px rgba(255, 197, 38, 0.65)) drop-shadow(0 0 26px rgba(255, 152, 0, 0.45));
+    will-change: transform;
+  }
+
+  .zodiac-wheel-layer-center {
+    z-index: 2;
+    filter: saturate(1.06) contrast(1.03);
+  }
+
+  .zodiac-wheel-layer-symbols {
+    z-index: 3;
+    filter: drop-shadow(0 0 30px rgba(255, 197, 38, 0.35));
+  }
+
+  @keyframes zodiacCounterRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+  }
+
   .whatsapp-float {
     @apply fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl shadow-lg;
     background: #25D366;
